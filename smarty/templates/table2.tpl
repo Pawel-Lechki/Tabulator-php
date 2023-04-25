@@ -1,11 +1,12 @@
-{include file="headner.tpl"}
+{*{include file="headner.tpl"}*}
+
+{*{include file="select.tpl"}*}
 
 <div id="table"></div>
 
-<div id="example-table"></div>
-
-<div>
-    <button id="download-xlsx">Download XLSX</button>
+<div class="m-4 d-flex flex-row-reverse">
+    <button id="download-xlsx" class="btn btn-success">Download XLSX</button>
+    <button id="print-table" class="btn btn-secondary mx-1">Print Table</button>
 </div>
 
 {*    <script src="https://cdn.jsdelivr.net/npm/luxon/build/global/luxon.min.js"></script>*}
@@ -32,6 +33,10 @@
     document.getElementById("download-xlsx").addEventListener("click", function(){
         table.download("xlsx", "data.xlsx", {sheetName:"My Data"});
     });
+
+    document.getElementById("print-table").addEventListener("click", function(){
+        table.print(false, true);
+    });
 </script>
 {/literal}
-{include file='footer.tpl'}
+{*{include file='footer.tpl'}*}

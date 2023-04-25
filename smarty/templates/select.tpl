@@ -1,10 +1,10 @@
 <form method="post">
-    <label for="idCategory">Kategoria:</label>
-    <select name="idCategory" name="idCategory">
-        <option>wybierz</option>
+    <label for="idCategory" class="form-label">Kategoria:</label>
+    <select name="idCategory" name="idCategory" class="form-select">
+        <option value="0">wybierz</option>
         {foreach $categories as $category}
             <option value="{$category['id']}">{$category['name']}</option>
         {/foreach}
     </select>
-    <button type="submit">Wybierz</button>
+    <button type="submit" class="my-2 btn btn-danger">Wybierz</button>
 </form>

@@ -10,8 +10,6 @@
 
     $gateway = new Gateway($database);
 
-
-
     $products = $gateway->getAll();
 
     $data = json_encode($products);
@@ -22,13 +20,15 @@
     $categories = $gateway->getCategories();
 
     $smarty->assign('categories', $categories);
-    $smarty->display('select.tpl');
+//    $smarty->display('select.tpl');
 
-    if(isset($_REQUEST['idCategory'])) {
+    if((isset($_REQUEST['idCategory'])) && ($_REQUEST['idCategory'] !== 0 )) {
        $category = $_REQUEST['idCategory'];
 
        $response = $gateway->getWithCategory($category);
 
         $smarty->assign('response', json_encode($response));
-        $smarty->display('table2.tpl');
+//        $smarty->display('table2.tpl');
     }
+
+    $smarty->display("site.tpl");
